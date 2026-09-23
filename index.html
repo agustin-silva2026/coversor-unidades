@@ -1,0 +1,51 @@
+   <!DOCTYPE html>
+<html>
+<head>
+    <title>conversor</title>
+    <style>
+        body {
+            text-align: center; margin-top: 100px; background-color: lightblue;
+        }
+        .contenedor {
+     display: flex; justify-content: center; gap: 60px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="contenedor">
+
+        <div>
+            <h1>Km a Metros</h1>
+            <p>Kilometros: <input type="number" id="entradaKm" step="0.1"></p>
+            <button onclick="convertirKm()">convertir</button>
+            <h2 id="salidaKm"></h2>
+        </div>
+
+        <div>
+            <h1>M a Cm</h1>
+            <p>Metros: <input type="number" id="entradaM" step="0.1"></p>
+            <button onclick="convertirM()">convertir</button>
+            <h2 id="salidaM"></h2>
+        </div>
+
+    </div>
+
+    <script>
+        function convertirKm() {
+            var valor = document.getElementById("entradaKm").value;
+            valor = parseFloat(valor);
+            var resultado = valor * 1000;
+            document.getElementById("salidaKm").innerText = resultado + " m";
+        }
+
+        function convertirM() {
+            var valor = document.getElementById("entradaM").value;
+            valor = parseFloat(valor);
+            var resultado = valor * 100;
+            document.getElementById("salidaM").innerText = resultado + " cm";
+        }
+    </script>
+
+</body>
+</html>   
