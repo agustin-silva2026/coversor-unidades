@@ -1,0 +1,97 @@
+ <!DOCTYPE html>
+<html>
+<head>
+    <title>conversor</title>
+    <style>
+        body {
+            text-align: center; 
+            margin-top: 50px; 
+            background-color: lightblue;
+            font-family: Arial, sans-serif;
+        }
+        .contenedor-principal {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        .contenedor {
+            display: flex; 
+            justify-content: center; 
+            gap: 40px;
+            margin-top: 20px;
+        }
+        select, input, button {
+            padding: 8px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="contenedor-principal">
+        <h1>Conversor de Unidades</h1>
+ 
+        <p>
+            Selecciona conversión: 
+            <select id="tipoConversion">
+                <option value="km_m">Km a Metros</option>
+                <option value="m_cm">M a Centímetros</option>
+            </select>
+        </p>
+
+        <div class="contenedor">
+            <div>
+                <h2>Km a M</h2>
+                <p>Kilometros: <input type="number" id="entradaKm" step="0.1" onchange="convertirKm()"></p>
+                <button onclick="convertirKm()">convertir</button>
+                <h3 id="salidaKm"></h3>
+            </div>
+            <div>
+                <h2>M a Cm</h2>
+                <p>Metros: <input type="number" id="entradaM" step="0.1" onchange="convertirM()"></p>
+                <button onclick="convertirM()">convertir</button>
+                <h3 id="salidaM"></h3>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function convertirKm() {
+            var opcion = document.getElementById("tipoConversion").value;
+            
+            if (opcion === "km_m") {
+                var valor = document.getElementById("entradaKm").value;
+                valor = parseFloat(valor);
+                var resultado = valor * 1000;
+                document.getElementById("salidaKm").innerText = resultado + " m";
+            }
+        }
+        function convertirM() {
+            var opcion = document.getElementById("tipoConversion").value;
+            
+            // Verifica que la opción seleccionada sea la de m a cm
+            if (opcion === "m_cm") {
+                var valor = document.getElementById("entradaM").value;
+                valor = parseFloat(valor);
+                var resultado = valor * 100;
+                document.getElementById("salidaM").innerText = resultado + " cm";
+            }
+        }
+    </script>
+
+</body>
+</html>
